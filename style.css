@@ -1,0 +1,18 @@
+body{
+    text-align: center;
+}
+#APPS{
+    width:100%;
+    height:800px;
+    background-color: cornsilk
+}
+#GAMES{
+    width:100%;
+    height:800px;
+    background-color:antiquewhite
+}
+#CHATBOT{
+    width:100%;
+    height:800px;
+    background-color:bisque
+}
