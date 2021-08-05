@@ -1,25 +1,35 @@
 <html>
     <head>
-        <title> My first page on VSC!!</title>
+        <title>Student register</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js"></script>
     </head>
-    <body>
-        <h1>My first console project</h1>
-        <script>
-     console.log("Myfirst Console Project");
-     var first_name="Chinar";
-     console.log(first_name);
-     var last_name="Goregaonkar";
-     console.log(last_name);
-     var full_name=first_name.concat(last_name);
-     console.log(full_name);
-     var a="15";
-     console.log(a);
-     var b="5";
-     console.log(b);
-     var c="20";
-     console.log(c);
-     var d="15";
-     console.log(d);
-        </script>
+    <body> 
+        <center>
+            <h1>List of Students</h1>
+<div>
+    <span>1</span>
+    <input type="text" placeholder="Name of the Student"id="S1">
+    <br>
+    <span>2</span>
+    <input type="text" placeholder="Name of the Student"id="S2">
+    <br>
+    <span>3</span>
+    <input type="text" placeholder="Name of the Student"id="S3">
+    <br>
+    <span>4</span>
+    <input type="text" placeholder="Name of the Student"id="S4">
+    <br>
+</div>
+<button onclick="submit()"id="submit">Submit</button>
+<div id="display_names">
+
+</div>
+<button onclick="sorting()"id="sort_button">Sort</button>
+
+
+
+        </center>
+        
     </body>
 </html>
