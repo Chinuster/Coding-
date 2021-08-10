@@ -1,31 +1,46 @@
-name_of_the_students=[];
+name_of_the_students_array=[];
 
-function submit() {
+function submit()
+{
+    var display_student_array=[];
+    for (var j=1;j<=4;j++)
+{
+    var name_of_the_student=document.getElementById("name_of_the_student_"+j).value;
+    console.log(name_of_the_student);
+    Name_of_the_students_array.push(name_of_the_student);
+}     
+console.log(name_of_the_student_array);
+var length_of_the_array=name_of_the_student_array.length;
+console.log(length_of_the_array);
 
-    var N1=document.getElementById("S1").Value;
-    var N2=document.getElementById("S2").Value;
-    var N3=document.getElementById("S3").Value;
-    var N4=document.getElementById("S4").Value;
-
-    name_of_the_students.push(N1);
-    name_of_the_students.push(N2);
-    name_of_the_students.push(N3);
-    name_of_the_students.push(N4);
-
-    console.log(name_of_the_students);
-
-    document.getElementById("display_names").innerHTML=name_of_the_students;
-    document.getElementById("submit").style.display="none";
-    document.getElementById("sort_button").style.display="inline-block";
-
+for (var k=0;k<length_of_the_array;k++)
+{
+    display_student_array.push("<h4>NAME - "+name_of_the_student_array[k]+"</h4>");
+    console.log(display_student_array);
 }
+console.log(display_student_array);
+document.getElementById("display_name_with_commas").innerHTML=display_student_array;
 
-function sorting() {
+var remove_commas=display_student_array.join(" ");
+console.log(remove_commas);
+document.getElementById("display_name_without_commas").innerHTML=remove_commas;
 
-    name_of_the_students.sort();
-    console.log(name_of_the_students);
-
-    document.getElementById("display_names").innerHTML=name_of_the_students;
-
-    
+document.getElementById("submit_button").style.display="none";
+document.getElementById("sort_button").style.display="inline-block";
 }
+function sorting() 
+{
+     name_of_the_student_array.sort();
+      console.log(name_of_the_student_array);
+       var display_student_array_sorting = [];
+        var lenght_of_name_of_students_array = name_of_the_student_array.length;
+         console.log(lenght_of_name_of_students_array);
+          for (var k = 0; k < lenght_of_name_of_students_array; k++)
+           {
+                display_student_array_sorting.push("NAME- " + name_of_the_student_array[k] + "</h4>");
+                 console.log(display_student_array_sorting);
+                 }
+                  var remove_commas = display_student_array_sorting.join(" ");
+                   console.log(remove_commas);
+                document.getElementById("display_name_without_commas").innerHTML = remove_commas;
+             }
