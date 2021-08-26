@@ -1,46 +1,91 @@
-name_of_the_students_array=[];
+canvas=document.getElementById("myCanvas");
+ctx=canvas.getContext("2d");
 
-function submit()
-{
-    var display_student_array=[];
-    for (var j=1;j<=4;j++)
-{
-    var name_of_the_student=document.getElementById("name_of_the_student_"+j).value;
-    console.log(name_of_the_student);
-    Name_of_the_students_array.push(name_of_the_student);
-}     
-console.log(name_of_the_student_array);
-var length_of_the_array=name_of_the_student_array.length;
-console.log(length_of_the_array);
+background_img="mars.jpg";
+rover_width=100;
+rover_height=90;
+ rover_image="rover.png";
+rover_x=10;
+rover_y=10;
 
-for (var k=0;k<length_of_the_array;k++)
-{
-    display_student_array.push("<h4>NAME - "+name_of_the_student_array[k]+"</h4>");
-    console.log(display_student_array);
+
+
+function add(){
+   background_imgTag=new Image();
+    background_imgTag.onload = uploadBackground;
+background_imgTag.src=background_img;
+
+var rover_imgTag=new Image();
+rover_imgTag.onload = uploadRover;
+rover_imgTag.src=rover_image;
+
+
 }
-console.log(display_student_array);
-document.getElementById("display_name_with_commas").innerHTML=display_student_array;
 
-var remove_commas=display_student_array.join(" ");
-console.log(remove_commas);
-document.getElementById("display_name_without_commas").innerHTML=remove_commas;
 
-document.getElementById("submit_button").style.display="none";
-document.getElementById("sort_button").style.display="inline-block";
+function uploadBackground(){
+    ctx.drawImage(background_imgTag,0,0,canvas.width,canvas.height);
+
 }
-function sorting() 
-{
-     name_of_the_student_array.sort();
-      console.log(name_of_the_student_array);
-       var display_student_array_sorting = [];
-        var lenght_of_name_of_students_array = name_of_the_student_array.length;
-         console.log(lenght_of_name_of_students_array);
-          for (var k = 0; k < lenght_of_name_of_students_array; k++)
-           {
-                display_student_array_sorting.push("NAME- " + name_of_the_student_array[k] + "</h4>");
-                 console.log(display_student_array_sorting);
-                 }
-                  var remove_commas = display_student_array_sorting.join(" ");
-                   console.log(remove_commas);
-                document.getElementById("display_name_without_commas").innerHTML = remove_commas;
-             }
+
+function uploadRover(){
+    ctx.drawImage(rover_imgTag,rover_x,rover_y,rover.width,rover.height);
+
+}
+window.addEventListener("keydown",my_keydown);
+function my_keydown(e){
+    keyPressed=e.keyCode;
+    console.log(keyPressed);
+
+    if (keyPressed=='37')
+    {
+        left();
+        console.log("left");
+    }
+    if (keyPressed=='38')
+    {
+        up();
+        console.log("up");
+    }
+    if (keyPressed=='39')
+    {
+        right();
+        console.log("right");
+    }
+    if (keyPressed=='40')
+    {
+        down();
+        console.log("down");
+    }
+}
+
+function left(){
+    if(rover_x >=0){
+        rover_x=rover_x-10;
+        console.log("When left arrow is pressed, x = " + rover_x + " | y = " +rover_y);
+        uploadBackground();
+        uploadRover();
+    }
+}
+function right(){
+    if(rover_x <=700){
+        rover_x=rover_x+10;
+        console.log("When right arrow is pressed, x = " + rover_x + " | y = " +rover_y);
+        uploadBackground();
+        uploadRover();
+    }
+}function up(){
+    if(rover_y >=0){
+        rover_y=rover_x-10;
+        console.log("When up arrow is pressed, x = " + rover_x + " | y = " +rover_y);
+        uploadBackground();
+        uploadRover();
+    }
+}function down(){
+    if(rover_y <=500){
+        rover_y=rover_y+10;
+        console.log("When down arrow is pressed, x = " + rover_x + " | y = " +rover_y);
+        uploadBackground();
+        uploadRover();
+    }
+}
